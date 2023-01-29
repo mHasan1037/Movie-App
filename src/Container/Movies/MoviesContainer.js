@@ -2,7 +2,7 @@ import React from 'react'
 
 const MoviesContainer = () => {
   return (
-    <div>Movies</div>
+    <div>Moviesddd</div>
   )
 }
 
