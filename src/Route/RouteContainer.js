@@ -12,7 +12,7 @@ import DetailsContainer from '../Container/Details/DetailsContainer'
 const RouteContainer = () => {
   return (
     <>
-       <BrowserRouter>
+       <BrowserRouter basename='/movie-app'>
           <HeaderContainer />
           <Routes>
              <Route exact path="/" element={ <HomeContainer /> } />
