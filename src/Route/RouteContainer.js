@@ -15,12 +15,12 @@ const RouteContainer = () => {
        <BrowserRouter basename='/movie-app'>
           <HeaderContainer />
           <Routes>
-             <Route exact path="/" element={ <HomeContainer /> } />
+             <Route path="/" element={ <HomeContainer /> } />
+             <Route exact path="/movie-app" element={ <HomeContainer /> } />
              <Route path="/movies" element={ <MoviesContainer /> } />
              <Route path="/series" element={ <SeriesContainer /> } />
              <Route path="/About" element={ <AboutApp /> } />
              <Route path="/details/:movieid/:mediatype" element={ <DetailsContainer /> } />
-             <Route path="/movie-app/movies" element={ <MoviesContainer /> } />
           </Routes>
           <FooterContainer />
        </BrowserRouter>
