@@ -20,6 +20,7 @@ const RouteContainer = () => {
              <Route path="/series" element={ <SeriesContainer /> } />
              <Route path="/About" element={ <AboutApp /> } />
              <Route path="/details/:movieid/:mediatype" element={ <DetailsContainer /> } />
+             <Route path="/movie-app/movies" element={ <MoviesContainer /> } />
           </Routes>
           <FooterContainer />
        </BrowserRouter>
