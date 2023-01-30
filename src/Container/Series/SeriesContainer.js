@@ -2,7 +2,7 @@ import React from 'react'
 
 const SeriesContainer = () => {
   return (
-    <div>Series</div>
+    <div>SeriesContainer</div>
   )
 }
 
