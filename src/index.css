@@ -1,3 +1,100 @@
 .white-text {
   color: white !important;
 }
+
+.nav{
+  display: flex;
+  gap: 10px;
+}
+
+.nav a{
+  text-decoration: none;
+  color: rgb(207, 206, 206)  !important;
+}
+
+nav .active{
+  color: white !important;
+  font-weight: bold;
+}
+
+.brand{
+  text-decoration: none;
+  color: white !important;
+  font-weight: normal !important;
+}
+
+
+
+/*
+movie box code.....
+*/
+
+.movie-box{
+  text-decoration: none;
+  color: black;
+}
+
+
+.img-container{
+  position: relative;
+}
+
+.movie-box:hover .img-container::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.type-rating{
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  display: none;
+}
+
+.movie-box:hover .type-rating{
+  display: flex;
+}
+
+.poster-media-type{
+  border: 1px solid white;
+  padding: 2px 7px;
+  color: white;
+  background-color: rgba(36, 36, 36, 0.5);
+}
+
+.poster-language{
+  background-color: white;
+  padding: 2px 7px;
+  border: 1px solid white;
+}
+
+.poster-vote{
+  border: 1px solid white;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(36, 36, 36, 0.5);
+}
+
+.release-date{
+  font-size: 12px;
+
+}
+
+.release-date p{
+  margin-bottom: 0 !important;
+}
