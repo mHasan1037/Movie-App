@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Link } from 'react-router-dom';
 import MovieCart from '../../Component/MovieCart/MovieCart';
+import Pagination from '../../Component/Pagination/Pagination';
 
 const HomeContainer = () => {
   const [content, setContent] = useState([])
@@ -16,11 +16,21 @@ const HomeContainer = () => {
   const fetchData = async() =>{
     const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&page=${pageno}`)
     setContent(data.results)
+    setPaginationNo(data.total_pages)
   }
 
   useEffect(()=>{
     fetchData()
   }, [])
+
+  const handleClick = (number) =>{
+    setPageno(number)
+  }
+
+  useEffect(()=>{
+    fetchData()
+  }, [pageno])
+  
 
   return (
     <>
@@ -39,6 +49,12 @@ const HomeContainer = () => {
                  }): 'Loading...'
               }
           </Row>
+       </Container>
+
+       <Container>
+            {
+              paginationNo && paginationNo > 1 ? <Pagination  maxnum={paginationNo} activenum={pageno} handleClick={handleClick} /> : ''
+            }
        </Container>
     </>
   )
