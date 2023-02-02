@@ -8,10 +8,12 @@ import Col from 'react-bootstrap/Col';
 import './style.css'
 
 import { img_300, img_not_available } from '../../Config';
+import CreditCard from '../CreditCard/CreditCard';
 
 const DetailsContainer = () => {
     const [content, setContent] = useState()
     const [video, setVideo] = useState()
+    const [credits, setCredits] = useState()
     const params = useParams()
 
     const API_KEY = process.env.REACT_APP_NOT_SECRET_CODE
@@ -38,9 +40,19 @@ const DetailsContainer = () => {
         }
     }
 
+    const creditFetch = async() =>{
+      try{
+        const { data } = await axios.get(`https://api.themoviedb.org/3/${_media_type}/${id}/credits?api_key=${API_KEY}&language=en-US`);
+        setCredits(data.cast)
+      }catch(error){
+        console.log(error)
+      }
+    }
+
     useEffect(()=>{
         detailsData()
         fetchVidoe()
+        creditFetch()
     }, [])
 
     const movieDetailData = () =>{
@@ -100,6 +112,15 @@ const DetailsContainer = () => {
                  <iframe width="560" height="315" src={`https://www.youtube.com/embed/${video}`} title="YouTube video player" allowFullScreen></iframe>
               </Col>
           </Row>
+       </Container>
+       <Container>
+           <Row>
+               <Col className='col-12'>
+                   {
+                    credits && credits.length > 0 ? <CreditCard data={credits} /> : 'Nothing to show...'
+                   }
+               </Col>
+           </Row>
        </Container>
     </>
   )

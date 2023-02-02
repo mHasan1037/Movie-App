@@ -11,8 +11,6 @@ const MovieCart = ({data}) => {
     const ImageURL = poster_path ? img_300 + poster_path : img_not_available
     const movieName = original_title ? original_title : title ? title : name
     const vote = parseInt(vote_average)
-
-    console.log(data)
  
 
   return (
